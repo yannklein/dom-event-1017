@@ -93,15 +93,15 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// console.log("Hi Batch #928!!!!");
+// console.log("Hi Batch #1017!!!!");
 
 // ////////
 // Select DOM elements
 // ////////
 
-// with its ID (Yaya)
-// const yaya = document.querySelector("#yaya");
-// console.log(yaya);
+// with its ID (Kaho)
+// const kaho = document.querySelector("#kaho");
+// console.log(kaho);
 
 // // with its tag type (h2)
 // const h2 = document.querySelector("h2");
@@ -110,31 +110,28 @@
 // // with its class (group)
 // const group = document.querySelector(".group");
 // console.log(group);
-
 // // by nest selection (ul of the group)
 // const ul = group.querySelector("ul");
 // console.log(ul);
-
 // // select multiple elements (all the card)
 // const cards = document.querySelectorAll(".card");
-// console.log(cards);
-
+// console.log(cards); // it's a nodelist, a kind of array
 
 // ////////
 // Modify the DOM
 // ////////
 
-// add an HTML element (Jobs United ⚙️)
-const teamListUl = document.querySelector(".group ul");
-teamListUl.insertAdjacentHTML("beforeend", "<li>Jobs <em>United</em> ⚙️</li>");
+// add an HTML element (NotAlone United 💚)
+const ul = document.querySelector(".group ul");
+ul.insertAdjacentHTML("beforeend", "<li>NotAlone <em>United</em> 💚</li>");
 
-// same but more complex (add Josh!!!)
-const susthamUl = document.querySelector("#sustham ul");
-susthamUl.insertAdjacentHTML(
+// same but more complex (add Yumi!!!)
+const socialoList = document.querySelector("#socialo ul");
+socialoList.insertAdjacentHTML(
   "afterbegin",
   `<li>
-    <img src="https://avatars.githubusercontent.com/u/104883545?v=4" alt="">
-    <p>Josh</p>
+    <img src="https://avatars.githubusercontent.com/u/88379080?v=4" alt="">
+    <p>Yumi</p>
   </li>`
 );
 
@@ -153,49 +150,46 @@ group.classList.remove("text-white");
 // add/remove every 1sec
 // setInterval(() => {
 //   group.classList.toggle("text-white");
-// }, 3000);
+// }, 1000);
 
 // Read/Write for inputs (change the value in the email input)
-const mail = document.querySelector("#email");
-console.log(mail.value);
+const email = document.querySelector("#email");
+console.log(email.value);
+email.value = "yann@me.com";
 
-mail.value = "yann@lewagon.org";
+// Read/Write the (inner) text and HTML content (SubsMan United 👹 title)
+const title = document.querySelector("#subsman-united h3");
+console.log(title);
+console.log(title.innerText);
+console.log(title.innerHTML);
 
-// Read/Write the (inner) text and HTML content (FF Healthish title)
-const healthish = document.querySelector("#ff-healthish h3");
-console.log(healthish.value); // NOT WORKING except for inputs!
-console.log(healthish.innerHTML);
-console.log(healthish.innerText);
-
-// healthish.innerText = "Hi <strong>everyone</strong>"; // SHOWS HTML CODE AS A TEXT
-healthish.innerHTML = "Hi <strong>everyone</strong>";
+title.innerText = "Hello <em>everyone</em>";
+title.innerHTML = "Hello <em>everyone</em>";
 
 // ////////
 // Add event listeners
 // ////////
 
-// 1. Select an element (yaya picture)
-// const yaya = document.querySelector("#yaya");
+// // 1. Select kaho img
+// const kaho = document.querySelector("#kaho");
 
-// // 2. Listen to an event (click on yaya picture)
-// yaya.addEventListener("click", (event) => {
-//   console.log(event);
-//   // 3. Change the DOM (add a .selected class to yaya pic)
-//   // event.currentTarget represents the clicked element, in our case yaya's picture
-//   const clickedElement = event.currentTarget;
-//   clickedElement.classList.toggle("selected");
+// // 2. Listen to an event (click) on kaho's img
+// kaho.addEventListener("click", () => {
+//   // 3. Change the DOM (add a "selected" class to kaho's img tag)
+//   kaho.classList.toggle("selected");
 // });
 
-// 1. Select elements (all the pictures)
+// // 1. Select card's img
+const images = document.querySelectorAll(".card img");
+console.log(images);
 
-const pictures = document.querySelectorAll(".card img");
-pictures.forEach((picture) => {
-  picture.addEventListener("click", (event) => {
+images.forEach((image) => {
+  // 2. Listen to an event (click) on kaho's img
+  image.addEventListener("click", (event) => {
+    // 3. Change the DOM (add a "selected" class to kaho's img tag)
     console.log(event);
-    // 3. Change the DOM (add a .selected class to yaya pic)
-    // event.currentTarget represents the clicked element, in our case yaya's picture
-    const clickedElement = event.currentTarget;
-    clickedElement.classList.toggle("selected");
+    event.currentTarget.classList.toggle("selected");
+    // image.classList.toggle("selected");
   });
 });
 
